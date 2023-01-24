@@ -37,10 +37,40 @@
             </ul>
         </nav>
 <!-- navbar end -->
+
+ <!-- Music Player -->
+<div class="music-container">
+    <div class="music-info">
+        <h4 id="title">KFAD</h4>
+        <div class="progress-container">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <audio src=".\assets\music\king-for-a-day.mp3" id="audio"></audio>
+
+    <div class="image-container">
+        <img src=".\assets\images\piercetheveilcover.jpg" alt="music-cover" id="cover" />
+    </div>
+
+    <div class="navigation">
+        <button id="prev" class="action-btn">
+            <i class="fa-solid fa-backward"></i>
+        </button>
+        <button id="play" class="action-btn action-btn-big">
+            <i class="fa-solid fa-play"></i>
+        </button>
+        <button id="next" class="action-btn">
+            <i class="fa-solid fa-forward"></i>
+        </button>
+    </div>
+</div> 
+
+
     </div>
 
 
 
-
+<script src="script.js"></script>
 </body>
 </html>
