@@ -89,7 +89,7 @@ nav:hover {
     margin: 100px 0;
     z-index: 10;
     width: 500px;
-    margin-left: 1350px;
+    margin-left: 700px;
 }
 
 .image-container {
@@ -104,9 +104,9 @@ nav:hover {
     width: 20px;
     position: absolute;
     left: 50%;
-    bottom: 65%;
+    bottom: 50%;
     border-radius: 50%;
-    transform: translate(-65%, -65%);
+    transform: translate(-50%, -50%);
 }
 
 .image-container img {
@@ -196,4 +196,29 @@ nav:hover {
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
+}
+
+/* Animated text */
+.phrase h1 {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 3.5em;
+    text-align: center;
+}
+
+.phrase h1::before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 15em;
+    white-space: nowrap;
+    color: #fff;
+    animation: phrase 10s linear;
+    filter: drop-shadow(0 0 20px rgb(182, 86, 86)) drop-shadow(0 0 50px rgb(175, 94, 94));
+}
+
+@keyframes phrase {
+    0% {
+        max-width: 0;
+    }
 }

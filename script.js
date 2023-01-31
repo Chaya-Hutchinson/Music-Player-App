@@ -33,7 +33,7 @@ function playMusic() {
 function pauseMusic() {
     musicContainer.classList.remove("play");
     cover.classList.remove('rotate');
-    playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    playBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     audio.pause();
 }
 
@@ -53,6 +53,7 @@ function nextMusic ()
     playMusic();
 }
 
+
 playBtn.addEventListener("click", () => {
     const isMusicplay = musicContainer.classList.contains("play");
     isMusicplay ? pauseMusic() : playMusic();
@@ -66,9 +67,22 @@ nextBtn.addEventListener("click", () => {
     nextMusic();
 });
 
-audio.addEventListener("timeUpdate", (e) => {
+audio.addEventListener("timeupdate", (e) => {
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;
     let progressWidth = (currentTime / duration) * 100;
-    progress.style.width =`${progressWidth}%`;
+    progress.style.width = `${progressWidth}%`;
 });
+
+progressContainer.addEventListener('click', (e) => {
+    let progressWidth = progressContainer.clientWidth;
+    let clickedOffsetX = e.offsetX;
+    let songDuration = audio.duration;
+
+    audio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
+    playMusic();
+ });
+
+ audio.addEventListener("ended", () => {
+    nextMusic();
+ })
